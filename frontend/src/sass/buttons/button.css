@@ -1,0 +1,13 @@
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-self: center;
+  width: 20%;
+  bottom: 6%;
+  align-self: center;
+  text-align: center;
+  height: 15%;
+}
+
+/*# sourceMappingURL=button.css.map */
