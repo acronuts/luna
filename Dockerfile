@@ -17,7 +17,7 @@ RUN /opt/conda/bin/conda env create -f /app/requirements.yml
 
 ENV PATH /opt/conda/envs/luna_env/bin:$PATH
 
-RUN echo "source activate Motion_env" >~/.bashrc
+RUN echo "source activate luna_env" >~/.bashrc
 
 # create a scripts folder
 RUN mkdir -p /scripts

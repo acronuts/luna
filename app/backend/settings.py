@@ -15,7 +15,7 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = ast.literal_eval(os.environ.get('DJANGO_DEBUG'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # Third party apps
     'rest_framework',
     'corsheaders',
+    # Own apps
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,5 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTH_USER_MODEL = 'users.User'
