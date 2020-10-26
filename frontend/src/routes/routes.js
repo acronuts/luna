@@ -4,6 +4,7 @@ import App from "../App";
 import UserProfile from "../components/user-profile";
 import {Header} from "../components/header/header";
 import {Footer} from "../components/footer/footer";
+import {LoginPage} from "../pages/login/login-page";
 
 const Routes = () => {
     return (
@@ -13,8 +14,7 @@ const Routes = () => {
 
             <Route exact path={"/app"} component={App} />
             <Route exact path={"/UserProfile"} component={UserProfile} />
-            <Route exact path={"/header"} component={Header} />
-            <Route exact path={"/footer"} component={Footer} />
+            <Route exact path={"/login"} component={LoginPage}/>
 
             </Switch>
         </Router>

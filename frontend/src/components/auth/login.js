@@ -3,8 +3,9 @@ import facebook from "../../assets/svgs/facebook.svg"
 import twitter from "../../assets/svgs/twitter.svg"
 import google from "../../assets/svgs/googleplus.svg"
 import instagram from "../../assets/svgs/instagram.svg"
+import "../../sass/login/login.scss"
 
-const Login = () => {
+export const Login = () => {
 
 
 
@@ -22,14 +23,14 @@ const Login = () => {
 
                 <div className="inputs">
 
-                    <input className="username"/>
-                    <input className="password"/>
+                    <input className="username" placeholder="Username"/>
+                    <input className="password" placeholder="Password"/>
 
                 </div>
 
-                <div className="login-button">
+                <div className="btn-container">
 
-                    <button type="submit" className="button"/>
+                    <button type="submit" className="button" id="login">Login</button>
 
                 </div>
             </div>
