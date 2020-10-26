@@ -28,4 +28,3 @@ class GetUser(RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = 'id'
-
