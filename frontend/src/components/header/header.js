@@ -1,4 +1,5 @@
-import logo from "../../assets/svgs/logo.svg"
+import logo from "../../assets/svgs/logo2.svg"
+import "../../sass/header/header.scss"
 
 
 export const Header = () => {
@@ -23,8 +24,8 @@ export const Header = () => {
 
                 <div className="signup-login">
 
-                    <p>SIGNUP</p>
-                    <p>LOGIN</p>
+                    <button id="left">SIGNUP</button>
+                    <button id="right">LOGIN</button>
 
                 </div>
 
