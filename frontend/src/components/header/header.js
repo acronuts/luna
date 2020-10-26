@@ -1,7 +1,7 @@
 import logo from "../../assets/svgs/logo.svg"
 
 
-const Header = () => {
+export const Header = () => {
 
     return (
 
