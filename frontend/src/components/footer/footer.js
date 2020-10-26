@@ -9,34 +9,35 @@ const Footer = () => {
 
     return (
 
-        <footer>
+        <>
+            <footer>
 
-                <div className="left">
+                    <div className="left">
 
-                    <p>About Us</p>
-                    <p>Press</p>
-                    <p>Blog</p>
-                    <p>iOs</p>
-                    <p>Android</p>
+                        <p>About Us</p>
+                        <p>Press</p>
+                        <p>Blog</p>
+                        <p>iOs</p>
+                        <p>Android</p>
 
-                </div>
+                    </div>
 
-                <div className="right">
+                    <div className="right">
 
-                    <img src={facebook}/>
-                    <img src={twitter}/>
-                    <img src={google}/>
-                    <img src={instagram}/>
+                        <img src={facebook}/>
+                        <img src={twitter}/>
+                        <img src={google}/>
+                        <img src={instagram}/>
 
-                </div>
+                    </div>
 
-        </footer>
+            </footer>
 
-        <div className="copyright">
+            <div className="copyright">
 
-            <p>© Copyright Luna 2018</p>
+                <p>© Copyright Luna 2018</p>
 
-        </div>
-
+            </div>
+        </>
     )
 }
