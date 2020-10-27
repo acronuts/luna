@@ -4,11 +4,12 @@ import star from '../../assets/svgs/star.svg';
 import comment from '../../assets/svgs/comment.svg';
 import restaurant from '../../assets/svgs/restaurant.svg';
 import editprofile from '../../assets/svgs/edit.svg';
-import banner from '../../assets/images/user/skylin-zurich-banner.png';
 import profilepicture from '../../assets/images/user/laurents-pb.png'
-const UserProfile = () => {
 
-    const [currentStage, setcurrentStage] = useState('show-editprofile')
+
+export const UserProfile = () => {
+
+    const [currentStage, setcurrentStage] = useState('show-reviews')
 
         return(
 
@@ -259,5 +260,3 @@ const UserProfile = () => {
             </div>
         )
 }
-
-export default  UserProfile
