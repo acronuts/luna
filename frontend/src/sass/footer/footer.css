@@ -6,6 +6,7 @@ footer {
   right: 0;
   width: 100%;
   flex-direction: column;
+  background-color: white;
 }
 footer .upper {
   display: flex;
@@ -43,6 +44,22 @@ footer .lower .copyright p {
   font-size: 12px;
   line-height: 14px;
   color: #646363;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+body a {
+  text-decoration: none;
+}
+body #root {
+  width: inherit;
+  height: inherit;
+}
+body main {
+  margin-top: 71px;
 }
 
 /*# sourceMappingURL=footer.css.map */
