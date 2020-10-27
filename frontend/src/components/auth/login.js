@@ -1,11 +1,27 @@
-
-import facebook from "../../assets/svgs/facebook.svg"
-import twitter from "../../assets/svgs/twitter.svg"
-import google from "../../assets/svgs/googleplus.svg"
-import instagram from "../../assets/svgs/instagram.svg"
 import "../../sass/login/login.scss"
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {userLogin} from "../../actions/userLoginAction";
 
 export const Login = () => {
+
+    const dispatch = useDispatch()
+    // let history = useHistory();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const nextButtonHandler = async(event) => {
+
+        const user = await dispatch(userLogin({
+            username: username,
+            password: password
+        }))
+
+        console.log("User", user)
+
+    }
+
+
 
 
 
@@ -23,8 +39,8 @@ export const Login = () => {
 
                 <div className="inputs">
 
-                    <input className="username" placeholder="Username"/>
-                    <input className="password" placeholder="Password"/>
+                    <input className="username" placeholder="Username" onChange={ event => setUsername(event.target.value)}/>
+                    <input className="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
 
                 </div>
 

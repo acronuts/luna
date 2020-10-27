@@ -4,6 +4,8 @@ import "../../sass/register/register.scss"
 export const Register = () => {
 
     const [currentRegStage, setcurrentRegStage] = useState(0)
+    const [email, setemail] = useState("")
+    const [password, setpassword] = useState("")
 
 
     const interval = setInterval(() => {
