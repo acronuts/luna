@@ -30,7 +30,9 @@ urlpatterns = [
     path('backend/admin/', admin.site.urls),
     path('backend/api/auth/', include(authurls)),
     path('backend/api/users/', include('users.urls')),
-    path('backend/api/registration/', include('registrations.urls'))
+    path('backend/api/registration/', include('registrations.urls')),
+    path('backend/api/interests/', include('interests.urls')),
+    path('backend/api/restaurants/', include('restaurants.urls')),
 ]
 
 if settings.DEBUG:

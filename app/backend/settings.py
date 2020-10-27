@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import ast
 import os
 from datetime import timedelta
-from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = ast.literal_eval(os.environ.get('DJANGO_DEBUG'))
@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     # Own apps
     'users',
     'registrations',
+    'interests',
+    'restaurants',
+    'categories',
+    'images',
+    'time_tables',
 ]
 
 MIDDLEWARE = [
