@@ -1,7 +1,12 @@
 body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
   height: 100%;
   background-color: #F8F8F8;
-  width: 100%;
+}
+body a {
+  text-decoration: none;
 }
 
 .container {
@@ -10,7 +15,6 @@ body {
   padding: 0;
   position: relative;
   display: flex;
-  margin-top: 120px;
   flex-direction: column;
   height: inherit;
 }
@@ -30,24 +34,25 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.container .wrapper .login {
+.container .wrapper .signIn {
   display: flex;
   margin-bottom: 77px;
   border-bottom: 3px solid #E47D31;
-  padding: 0 10px;
+  flex-direction: column;
 }
-.container .wrapper .login p {
+.container .wrapper .signIn p {
   line-height: 28px;
   font-size: 24px;
   font-family: Helvetica;
   color: #4C4C4C;
   font-weight: bold;
+  text-align: center;
 }
-.container .wrapper .inputs {
+.container .wrapper .email {
   display: flex;
   flex-direction: column;
 }
-.container .wrapper .inputs input {
+.container .wrapper .email input {
   outline: none;
   color: white;
   border: 1px solid #EBEBEB;
@@ -56,8 +61,51 @@ body {
   width: 340px;
   height: 52px;
 }
-.container .wrapper .inputs .username {
-  margin-bottom: 20px;
+.container .wrapper .signIn2 {
+  display: flex;
+  margin-bottom: 68px;
+  border-bottom: 3px solid #E47D31;
+  flex-direction: column;
+}
+.container .wrapper .signIn2 p {
+  line-height: 28px;
+  font-size: 24px;
+  font-family: Helvetica;
+  color: #4C4C4C;
+  font-weight: bold;
+  text-align: center;
+}
+.container .wrapper .reg_content {
+  display: flex;
+  justify-content: center;
+  width: 497px;
+  text-align: center;
+}
+.container .wrapper .reg_content p {
+  font-family: Helvetica;
+  font-size: 20px;
+  line-height: 23px;
+}
+.container .wrapper .form-tab {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.container .wrapper .form-tab div {
+  width: 740px;
+  justify-items: center;
+}
+.container .wrapper .form-tab div input {
+  outline: none;
+  color: white;
+  border: 1px solid #EBEBEB;
+  box-sizing: border-box;
+  border-radius: 3px;
+  width: 340px;
+  height: 52px;
+  margin: 0 15px 16px 15px;
 }
 
 body {
@@ -127,4 +175,4 @@ body main {
   font-weight: normal;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=register.css.map */

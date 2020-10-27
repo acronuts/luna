@@ -5,6 +5,7 @@ import UserProfile from "../components/user-profile";
 import {Header} from "../components/header/header";
 import {Footer} from "../components/footer/footer";
 import {LoginPage} from "../pages/login/login-page";
+import {RegisterPage} from "../pages/register/register-page";
 
 const Routes = () => {
     return (
@@ -15,6 +16,8 @@ const Routes = () => {
             <Route exact path={"/app"} component={App} />
             <Route exact path={"/UserProfile"} component={UserProfile} />
             <Route exact path={"/login"} component={LoginPage}/>
+            <Route exact path={"/register"} component={RegisterPage}/>
+
 
             </Switch>
         </Router>

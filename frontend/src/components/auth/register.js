@@ -1,22 +1,37 @@
 import React, {useState} from "react";
+import "../../sass/register/register.scss"
 
-
-const Register = () => {
+export const Register = () => {
 
     const [currentRegStage, setcurrentRegStage] = useState(0)
 
 
+    const interval = setInterval(() => {
+        if (currentRegStage === 1) {
+            setcurrentRegStage(2)
+        }
+    }, 10000)
+
+    const changeStage = () => {
+        setcurrentRegStage(+1)
+    }
+
+
     return (
 
-        <div className="wrapper">
+        <div className="container">
 
-            {currentRegStage === 0 ?
+            <div className="wrapper">
 
-                <section className="singIn">
+                {currentRegStage === 0 ?
 
-                    <p>Registration</p>
+                    <>
 
-                    <div className="form-tab">
+                        <div className="signIn">
+
+                            <p>REGISTRATION</p>
+
+                        </div>
 
                         <div className="email">
 
@@ -29,74 +44,77 @@ const Register = () => {
 
                         </div>
 
-                    </div>
 
-                    <div className="btn-container">
+                        <div className="btn-container">
 
-                        <button type="text" id="signin" >Continue</button>
-
-                    </div>
-
-
-                </section>
-
-            : null }
-
-            {currentRegStage === 1 ?
-
-                <section className="singIn">
-
-                    <div>
-
-                        <p>Registration</p>
-
-                    </div>
-
-                    <div>
-
-                        <p>Thanks for your registration. Our hard working monkeys are preparing a digital message called E-Mail that will be sent to you soon. Since monkeys arent good in writing the message could end up in you're junk folder. Our apologies for any inconvienience.thank for </p>
-
-                    </div>
-
-                </section>
-
-            : null }
-
-            {currentRegStage === 2 ?
-
-                <section className="singIn">
-
-                    <div>
-
-                        <p>Verification</p>
-
-                    </div>
-
-                    <div className="form-tab">
-
-                        <div>
-
-                            <input type="email"/>
-                            <input type="number"/>
-                            <input type="text"/>
-                            <input type="text"/>
-                            <input type="password"/>
-                            <input type="password"/>
+                            <button type="text" id="signin" onClick={changeStage}>Register</button>
 
                         </div>
 
-                    </div>
+                    </>
 
-                    <div className="btn-container">
 
-                        <button type="text" id="signin" >Continue</button>
 
-                    </div>
 
-                </section>
+                : null }
 
-            : null }
+                {currentRegStage === 1 ?
 
+                    <>
+
+                        <div className="signIn2">
+
+                            <p>REGISTRATION</p>
+
+                        </div>
+
+                        <div className="reg_content">
+
+                            <p>Thanks for your registration. <br/>Our hard working monkeys are preparing a digital message called E-Mail that will be sent to you soon. Since monkeys arent good in writing the message could end up in you're junk folder. Our apologies for any inconvienience.thank for </p>
+
+                        </div>
+
+                    </>
+
+                : null }
+
+                {currentRegStage === 2 ?
+
+                    <>
+
+                        <div className="signIn">
+
+                            <p>VERIFICATION</p>
+
+                        </div>
+
+                        <div className="form-tab">
+
+                            <div>
+
+                                <input type="email" placeholder="E-Mail address"/>
+                                <input type="number" placeholder="Validation code"/>
+                                <input type="text" placeholder="Username"/>
+                                <input type="text" placeholder="Location"/>
+                                <input type="password" placeholder="Password"/>
+                                <input type="password" placeholder="Password repeat"/>
+
+                            </div>
+
+                        </div>
+
+                        <div className="btn-container">
+
+                            <button type="text" id="finish-reg">Finish registration</button>
+
+                        </div>
+
+                    </>
+
+                : null }
+
+
+            </div>
 
         </div>
     )
