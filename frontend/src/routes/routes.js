@@ -10,7 +10,6 @@ const Routes = () => {
             <Switch>
 
             <Route exact path={"/app"} component={App} />
-            <Route exact path={"/UserProfile"} component={UserProfile} />
 
             </Switch>
         </Router>
