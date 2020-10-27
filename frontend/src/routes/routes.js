@@ -4,6 +4,7 @@ import App from "../App";
 import {LoginPage} from "../pages/login/login-page";
 import {RegisterPage} from "../pages/register/register-page";
 import {UserProfilePage} from "../pages/userprofile/userprofile-page";
+import {CreateRestaurantPage} from "../pages/create-restaurant-page/create-restaurant-page";
 
 const Routes = () => {
     return (
@@ -15,7 +16,7 @@ const Routes = () => {
             <Route exact path={"/userprofile"} component={UserProfilePage} />
             <Route exact path={"/login"} component={LoginPage}/>
             <Route exact path={"/register"} component={RegisterPage}/>
-
+            <Route exact path={"/create-restaurant"} component={CreateRestaurantPage}/>
 
             </Switch>
         </Router>

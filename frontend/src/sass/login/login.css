@@ -12,7 +12,7 @@ body {
   display: flex;
   margin-top: 120px;
   flex-direction: column;
-  height: inherit;
+  height: 74vh;
 }
 .container ::placeholder {
   display: flex;
