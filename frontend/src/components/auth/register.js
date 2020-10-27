@@ -1,11 +1,18 @@
 import React, {useState} from "react";
 import "../../sass/register/register.scss"
+import axios from "axios";
+import {registration, validation} from "../../constants";
 
 export const Register = () => {
 
-    const [currentRegStage, setcurrentRegStage] = useState(0)
-    const [email, setemail] = useState("")
+    const [currentRegStage, setcurrentRegStage] = useState(2)
+    const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
+    const [code, setCode] = useState("")
+    const [username, setUsername] = useState("")
+    const [location, setLocation] = useState("")
+    const [passwordRe, setPasswordRe] = useState("")
+
 
 
     const interval = setInterval(() => {
@@ -17,6 +24,41 @@ export const Register = () => {
     const changeStage = () => {
         setcurrentRegStage(+1)
     }
+
+    const handleRegEmail = (event) => {
+        setEmail(event.target.value)
+        event.preventDefault();
+
+        axios.post(registration, {
+            email: email
+        })
+            .catch((error) => {
+                console.log(error)
+            })
+
+    }
+
+    const handleSubmitReg = (event) => {
+
+        event.preventDefault();
+
+        if(password === passwordRe) {
+            axios.post(validation, {
+                email: email,
+                username: username,
+                code: code,
+                password: password,
+                location: location
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }
+        else {
+            alert("Passwords must be the same!")
+        }
+
+    };
 
 
     return (
@@ -40,7 +82,7 @@ export const Register = () => {
                             <input
                             type="email"
                             // value={email}
-                            // onChange={handleRegEmail}
+                            onChange={handleRegEmail}
                             placeholder="Email"
                             />
 
@@ -94,12 +136,12 @@ export const Register = () => {
 
                             <div>
 
-                                <input type="email" placeholder="E-Mail address"/>
-                                <input type="number" placeholder="Validation code"/>
-                                <input type="text" placeholder="Username"/>
-                                <input type="text" placeholder="Location"/>
-                                <input type="password" placeholder="Password"/>
-                                <input type="password" placeholder="Password repeat"/>
+                                <input type="email" placeholder="E-Mail address" onChange={ event => setEmail(event.target.value)}/>
+                                <input type="number" placeholder="Validation code" onChange={ event => setCode(event.target.value)}/>
+                                <input type="text" placeholder="Username" onChange={ event => setUsername(event.target.value)}/>
+                                <input type="text" placeholder="Location" onChange={ event => setLocation(event.target.value)}/>
+                                <input type="password" placeholder="Password" onChange={ event => setpassword(event.target.value)}/>
+                                <input type="password" placeholder="Password repeat" onChange={ event => setPasswordRe(event.target.value)}/>
 
                             </div>
 
@@ -107,7 +149,7 @@ export const Register = () => {
 
                         <div className="btn-container">
 
-                            <button type="text" id="finish-reg">Finish registration</button>
+                            <button type="text" id="finish-reg" onClick={handleSubmitReg}>Finish registration</button>
 
                         </div>
 
