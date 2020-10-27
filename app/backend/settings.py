@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'users',
     'registrations',
     'interests',
+    'restaurants',
+    'categories',
+    'images',
+    'time_tables',
 ]
 
 MIDDLEWARE = [

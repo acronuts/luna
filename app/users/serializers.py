@@ -15,6 +15,7 @@ class UserInterestSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     fk_interest_user = UserInterestSerializer(many=True)
 
+
     class Meta:
         model = User
         fields = ['id', 'email', 'username', 'first_name', 'last_name', 'location', 'about', 'phone', 'avatar',
