@@ -2,6 +2,13 @@
   font-family: Helvetica;
 }
 
+body {
+  width: 100%;
+}
+body #root {
+  width: 100%;
+}
+
 .header {
   background-color: white;
   width: 100%;
@@ -18,7 +25,7 @@
 .header .logo {
   display: flex;
   justify-self: flex-start;
-  width: 60%;
+  width: 57%;
   margin-left: 30px;
 }
 .header .logo #luna-logo {
