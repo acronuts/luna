@@ -4,6 +4,7 @@ import star from '../../assets/svgs/star.svg';
 
 const UserProfile = () => {
 
+    const [currentStage, setcurrentStage] = useState(0)
 
         return(
 
@@ -59,6 +60,7 @@ const UserProfile = () => {
 
                 {/*REVIEW SHOW ON CLICK*/}
                 {/*Wrapper*/}
+                {currentStage === 'show-reviews' ?
                 <div className='reviews-wrapper-mc'>
                     {/*Title*/}
                     <p>REVIEWS</p>
@@ -67,8 +69,10 @@ const UserProfile = () => {
                         <div className='single-review-mc'>
 
                             {/*Restaurant Name and Date*/}
+                            <div className='wrapper-review-title-date-mc'>
                             <p className='restaurant-name-mc'> Läderach Chocolatier Suisse</p>
                             <p className='date-review-mc'>10.10.2020</p>
+                            </div>
 
                             {/*Stars*/}
                             <div className='stars-review-mc'>
@@ -87,18 +91,28 @@ const UserProfile = () => {
                         </div>
 
                 </div>
+                : null }
 
                 {/*COMMENTS SHOW ON CLICK*/}
+                {currentStage === 'show-comments' ?
                 <div className='comments-wrapper-mc'>
 
                     <p>COMMENTS</p>
 
                     {/*SINGLE COMMENT*/}
-                    <div>
+                    <div className='comments-title-date-wrapper-mc'>
+                        <p className='comments-title-mc'>Review 1</p>
+                        <p className='comments-date-mc'>20.20.2020</p>
+                    </div>
 
+                    <div className='comments-content-wrapper-mc'>
+                        <p className='comments-content-mc'></p>
                     </div>
 
                 </div>
+                    : null }
+
+
 
             </div>
         )
