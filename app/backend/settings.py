@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Own apps
     'users',
     'registrations',
+    'interests',
 ]
 
 MIDDLEWARE = [
