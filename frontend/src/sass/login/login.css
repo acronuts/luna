@@ -4,7 +4,7 @@ body {
   width: 100%;
 }
 
-.container {
+.login-container {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -12,9 +12,9 @@ body {
   display: flex;
   margin-top: 120px;
   flex-direction: column;
-  height: 74vh;
+  height: 67vh;
 }
-.container ::placeholder {
+.login-container ::placeholder {
   display: flex;
   align-self: center;
   padding-left: 23px;
@@ -26,29 +26,29 @@ body {
   vertical-align: center;
   padding: 0;
 }
-.container .wrapper {
+.login-container .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.container .wrapper .login {
+.login-container .wrapper .login {
   display: flex;
   margin-bottom: 77px;
   border-bottom: 3px solid #E47D31;
   padding: 0 10px;
 }
-.container .wrapper .login p {
+.login-container .wrapper .login p {
   line-height: 28px;
   font-size: 24px;
   font-family: Helvetica;
   color: #4C4C4C;
   font-weight: bold;
 }
-.container .wrapper .inputs {
+.login-container .wrapper .inputs {
   display: flex;
   flex-direction: column;
 }
-.container .wrapper .inputs input {
+.login-container .wrapper .inputs input {
   outline: none;
   color: black;
   border: 1px solid #EBEBEB;
@@ -59,7 +59,7 @@ body {
   font-size: 20px;
   padding-left: 23px;
 }
-.container .wrapper .inputs .username {
+.login-container .wrapper .inputs .username {
   margin-bottom: 20px;
 }
 

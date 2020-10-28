@@ -24,7 +24,7 @@ export const Login = () => {
 
     return (
 
-        <main className="container">
+        <main className="login-container">
 
             <div className="wrapper">
 

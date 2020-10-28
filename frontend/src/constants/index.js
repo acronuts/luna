@@ -9,3 +9,7 @@ export const registration = `${baseUrl}backend/api/registration/`
 export const validation = `${baseUrl}backend/api/registration/validate/`
 
 export const USER_TOKEN = "USER_TOKEN"
+
+export const listsRestaurants = `${baseUrl}backend/api/restaurants/`
+
+export const List_all_Restaurants = "List_all_Restaurants"
