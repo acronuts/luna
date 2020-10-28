@@ -1,5 +1,7 @@
 import logo from "../../assets/svgs/logo2.svg"
 import "../../sass/header/header.scss"
+import {Link} from "react-router-dom";
+
 
 
 export const Header = () => {
@@ -18,14 +20,14 @@ export const Header = () => {
 
                     <p>Home</p>
                     <p>Search</p>
-                    <p>Profile</p>
+                    <Link to="/userprofile"><p>Profile</p></Link>
 
                 </div>
 
                 <div className="signup-login">
 
-                    <button id="left">SIGNUP</button>
-                    <button id="right">LOGIN</button>
+                    <Link to="/register"><button id="left">SIGNUP</button></Link>
+                    <Link to="/login"><button id="right">LOGIN</button></Link>
 
                 </div>
 

@@ -100,6 +100,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 .btn-container #signin {
   width: 200px;
@@ -114,6 +115,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 .btn-container #finish-reg {
   width: 250px;
@@ -128,6 +130,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=login.css.map */

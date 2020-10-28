@@ -2,10 +2,13 @@ import React, {useState} from "react";
 import "../../sass/register/register.scss"
 import axios from "axios";
 import {registration, validation} from "../../constants";
+import {userLogin} from "../../actions/userLoginAction";
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
 
 export const Register = () => {
 
-    const [currentRegStage, setcurrentRegStage] = useState(2)
+    const [currentRegStage, setcurrentRegStage] = useState(0)
     const [email, setEmail] = useState("")
     const [password, setpassword] = useState("")
     const [code, setCode] = useState("")
@@ -13,6 +16,8 @@ export const Register = () => {
     const [location, setLocation] = useState("")
     const [passwordRe, setPasswordRe] = useState("")
 
+    const dispatch = useDispatch();
+    let history = useHistory();
 
 
     const interval = setInterval(() => {
@@ -23,18 +28,16 @@ export const Register = () => {
 
     const changeStage = () => {
         setcurrentRegStage(+1)
+        handleRegEmail()
     }
 
     const handleRegEmail = (event) => {
-        setEmail(event.target.value)
-        event.preventDefault();
-
         axios.post(registration, {
             email: email
         })
-            .catch((error) => {
-                console.log(error)
-            })
+        .catch((error) => {
+            console.log(error)
+        })
 
     }
 
@@ -50,9 +53,21 @@ export const Register = () => {
                 password: password,
                 location: location
             })
+            .then((request) => {
+                if(request) {
+                    dispatch(userLogin({
+                        username: request["username"],
+                        password: request["password"]
+                    }))
+                    if(localStorage) {
+                        history.push("/login")
+                    }
+                }
+            })
             .catch((error) => {
                 console.log(error);
             });
+
         }
         else {
             alert("Passwords must be the same!")
@@ -82,7 +97,7 @@ export const Register = () => {
                             <input
                             type="email"
                             // value={email}
-                            onChange={handleRegEmail}
+                            onChange={ event => setEmail(event.target.value)}
                             placeholder="Email"
                             />
 
