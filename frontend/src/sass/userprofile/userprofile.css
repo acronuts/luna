@@ -11,10 +11,11 @@
 .container-user-profile {
   display: flex;
   width: 100%;
-  height: 86vh;
   background-color: #F8F8F8;
   background-image: url("/assets/images/user/skylin-zurich-banner.png");
   background-repeat: repeat-x;
+  margin-bottom: 14vh;
+  height: auto;
 }
 .container-user-profile .wrapper-menu-lc {
   display: flex;
@@ -139,7 +140,7 @@
   width: 100%;
   height: 100%;
   margin-top: 3%;
-  min-height: 775px;
+  /*min-height: 775px;*/
 }
 .container-user-profile .username-mc {
   font-family: Helvetica, sans-serif;

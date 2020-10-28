@@ -7,6 +7,7 @@ import {UserProfilePage} from "../pages/userprofile/userprofile-page";
 import {CreateRestaurantPage} from "../pages/create-restaurant-page/create-restaurant-page";
 import {CreateReviewPage} from "../pages/create-review-page/index";
 import {Searchbar} from "../components/search/search-review";
+import {Home} from "../pages/home";
 
 
 const Routes = () => {
@@ -21,7 +22,7 @@ const Routes = () => {
             <Route exact path={"/register"} component={RegisterPage}/>
             <Route exact path={"/create-restaurant"} component={CreateRestaurantPage}/>
             <Route exact path={"/create-review"} component={CreateReviewPage}/>
-            <Route exact path={"/searchbar"} component={Searchbar}/>
+            <Route exact path={"/home"} component={Home}/>
 
 
             </Switch>

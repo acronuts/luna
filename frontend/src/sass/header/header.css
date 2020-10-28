@@ -15,11 +15,11 @@ body #root {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
+  position: sticky;
   left: 0;
   right: 0;
   top: 0;
-  height: 7vh;
+  height: 9vh;
   border-bottom: 1px solid #D8D8D8;
 }
 .header .logo {

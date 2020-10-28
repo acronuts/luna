@@ -19,13 +19,13 @@ body {
   height: 100%;
 }
 
-.wrapper {
+.wrapper1 {
   display: flex;
   position: relative;
   flex-direction: row;
   border-bottom: 1px solid #D8D8D8;
 }
-.wrapper ::placeholder {
+.wrapper1 ::placeholder {
   display: flex;
   align-self: center;
   padding-left: 23px;
@@ -37,12 +37,12 @@ body {
   vertical-align: center;
   padding: 0;
 }
-.wrapper .left {
+.wrapper1 .left {
   display: flex;
   width: 85%;
   border-right: 1px solid #D8D8D8;
 }
-.wrapper .left input {
+.wrapper1 .left input {
   width: 100%;
   outline: none;
   height: 5vh;
@@ -50,7 +50,7 @@ body {
   padding-left: 23px;
   font-size: 20px;
 }
-.wrapper .right {
+.wrapper1 .right {
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -58,12 +58,12 @@ body {
   background-color: white;
   width: 15%;
 }
-.wrapper .right label {
+.wrapper1 .right label {
   align-self: center;
   margin-right: 15px;
   color: #D8D8D8;
 }
-.wrapper .right select {
+.wrapper1 .right select {
   display: flex;
   -webkit-appearance: none;
   width: 30px;
