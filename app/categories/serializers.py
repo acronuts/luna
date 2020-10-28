@@ -6,7 +6,7 @@ from users.serializers import UserSerializer
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    owner = UserSerializer
+    owner = UserSerializer(read_only=True)
 
     class Meta:
         model = Category
