@@ -12,7 +12,7 @@ body {
   display: flex;
   margin-top: 120px;
   flex-direction: column;
-  height: inherit;
+  height: 74vh;
 }
 .container ::placeholder {
   display: flex;
@@ -24,6 +24,7 @@ body {
   color: #979797;
   opacity: 0.9;
   vertical-align: center;
+  padding: 0;
 }
 .container .wrapper {
   display: flex;
@@ -49,12 +50,14 @@ body {
 }
 .container .wrapper .inputs input {
   outline: none;
-  color: white;
+  color: black;
   border: 1px solid #EBEBEB;
   box-sizing: border-box;
   border-radius: 3px;
   width: 340px;
   height: 52px;
+  font-size: 20px;
+  padding-left: 23px;
 }
 .container .wrapper .inputs .username {
   margin-bottom: 20px;
