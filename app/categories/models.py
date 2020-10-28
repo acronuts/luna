@@ -9,5 +9,3 @@ class Category(models.Model):
 
     def __str__(self):
         return f'ID {self.pk}: {self.name}'
-
-

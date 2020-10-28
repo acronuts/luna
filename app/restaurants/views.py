@@ -53,3 +53,13 @@ class ListRestaurantsByCat(ListAPIView):
 
     def get_queryset(self):
         return Restaurant.objects.filter(m2m_restaurant_cat=self.kwargs['category_id'])
+
+
+class ListRestaurantsByUser(ListAPIView):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
+    lookup_field = 'user_id'
+    permission_classes = []
+
+    def get_queryset(self):
+        return Restaurant.objects.filter(owner=self.kwargs['user_id'])
