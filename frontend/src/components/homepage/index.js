@@ -5,6 +5,7 @@ import star from "../../assets/svgs/star.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {List_all_Restaurants} from "../../constants";
 import {listRestaurant} from "../../actions/restaurantAction";
+import {Restaurant_cell} from "./restaurant-cell";
 
 export const Homepage = ({data}, props) => {
 
@@ -25,7 +26,11 @@ export const Homepage = ({data}, props) => {
 
                 <input type="text" placeholder="Search..."/>
 
-                <button type="submit" id="search">Search</button>
+                <div className="btn-container2">
+                    <button type="submit" id="search">Search</button>
+                </div>
+
+
 
             </div>
 
@@ -39,7 +44,11 @@ export const Homepage = ({data}, props) => {
 
                 <div className="best-rated-restaurants">
 
-
+                    <Restaurant_cell/>
+                    <Restaurant_cell/>
+                    <Restaurant_cell/>
+                    <Restaurant_cell/>
+                    <Restaurant_cell/>
 
                 </div>
 

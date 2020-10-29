@@ -12,13 +12,13 @@ export const Header = () => {
 
                 <div className="logo">
 
-                    <img src={logo} id="luna-logo"/>
+                    <Link to="/"><img src={logo} id="luna-logo"/></Link>
 
                 </div>
 
                 <div className="home-search-profile">
 
-                    <p>Home</p>
+                    <Link to="/"><p>Home</p></Link>
                     <p>Search</p>
                     <Link to="/userprofile"><p>Profile</p></Link>
 
