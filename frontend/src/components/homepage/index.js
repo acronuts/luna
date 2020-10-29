@@ -48,7 +48,7 @@ export const Homepage = ({data}, props) => {
                     <Restaurant_cell/>
                     <Restaurant_cell/>
                     <Restaurant_cell/>
-                    <Restaurant_cell/>
+
 
                 </div>
 

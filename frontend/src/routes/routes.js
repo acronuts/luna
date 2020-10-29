@@ -6,7 +6,7 @@ import {RegisterPage} from "../pages/register/register-page";
 import {UserProfilePage} from "../pages/userprofile/userprofile-page";
 import {CreateRestaurantPage} from "../pages/create-restaurant-page/create-restaurant-page";
 import {CreateReviewPage} from "../pages/create-review-page/index";
-import {Searchbar} from "../components/search/search-review";
+import {Searchbar} from "../components/search/search-review-second-header";
 import {Home} from "../pages/home";
 import {RestaurantPage} from "../pages/restaurant/restaurant-page";
 import {Restaurant_cell} from "../components/homepage/restaurant-cell";
