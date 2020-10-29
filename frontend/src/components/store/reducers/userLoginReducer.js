@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_TOKEN} from "../../../constants";
+import {USER_LOGIN, USER_LOGOUT, USER_TOKEN} from "../../../constants";
 
 
 export const initialState = {
@@ -21,6 +21,13 @@ export const userLoginReducer = (state = initialState, action) => {
             return {
                 token: action.payload,
                 authenticated: true
+            }
+        }
+        case USER_LOGOUT: {
+            return {
+                user: null,
+                token: null,
+                authenticated: null,
             }
         }
         default:
