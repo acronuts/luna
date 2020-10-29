@@ -17,3 +17,5 @@ export const listsRestaurants = `${baseUrl}backend/api/restaurants/`
 export const List_all_Restaurants = "List_all_Restaurants"
 
 export const ABOUT_USER = "ABOUT_USER"
+
+export const createRestaurant = `${baseUrl}backend/api/restaurants/new/`
