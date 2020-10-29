@@ -35,6 +35,7 @@ urlpatterns = [
     path('backend/api/restaurants/', include('restaurants.urls')),
     path('backend/api/reviews/', include('reviews.urls')),
     path('backend/api/review/comment/', include('comments.urls')),
+    path('backend/api/categories/', include('categories.urls')),
 ]
 
 if settings.DEBUG:

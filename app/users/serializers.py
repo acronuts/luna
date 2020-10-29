@@ -3,6 +3,8 @@ from rest_framework import serializers
 
 from interests.models import Interest
 
+from likes.serializers import LikeSerializer
+
 User = get_user_model()
 
 
@@ -14,8 +16,9 @@ class UserInterestSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     fk_interest_user = UserInterestSerializer(many=True)
+    fk_like_user = LikeSerializer(many=True)
 
     class Meta:
         model = User
         fields = ['id', 'email', 'username', 'first_name', 'last_name', 'location', 'about', 'phone', 'avatar',
-                  'banner', 'fk_interest_user']
+                  'banner', 'date_joined', 'fk_interest_user', 'fk_like_user']
