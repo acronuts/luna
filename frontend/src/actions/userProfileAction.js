@@ -1,5 +1,6 @@
 import baseUrl from "../constants/urls";
 import React, {Component, useEffect, useState} from 'react';
+import {userprofileurl} from "../constants";
 
 export const setUserData = (type, data) => {
     return {
@@ -21,7 +22,7 @@ export const userProfileAction = (type) => async (dispatch, getState) => {
     };
 
     console.log(token)
-    const response = await fetch(`${baseUrl}api/users/me/`, config)
+    const response = await fetch(userprofileurl, config)
     const data = await response.json();
 
     console.log("Fetching UserProfileData")
