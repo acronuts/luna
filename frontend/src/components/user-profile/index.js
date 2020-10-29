@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import '../../sass/userprofile/userprofile.scss'
 import star from '../../assets/svgs/star.svg';
 import comment from '../../assets/svgs/comment.svg';
@@ -6,10 +6,39 @@ import restaurant from '../../assets/svgs/restaurant.svg';
 import editprofile from '../../assets/svgs/edit.svg';
 import profilepicture from '../../assets/images/user/laurents-pb.png'
 
+import {userProfileAction} from "../../actions/userProfileAction";
+import {ABOUT_USER} from "../../constants";
+import {useDispatch, useSelector} from "react-redux";
+import axios from "axios";
 
-export const UserProfile = () => {
 
+
+export const UserProfile = ({data},props) => {
+
+    //User Nav Menu
     const [currentStage, setcurrentStage] = useState('show-reviews')
+
+    //User Data Fetch
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.userProfileReducer.user)
+
+        useEffect(() => {
+                const userData = async () => {
+                        await dispatch(userProfileAction(ABOUT_USER))
+                }
+                userData();
+                console.log("user", data)
+            },[]);
+
+        console.log("Fetched User Data:",user);
+
+        const [avatar, setAvatar] = useState({profilepicture})
+        const [username, setUsername] = useState('Laurent\'s Profile')
+        const [first_name, setFirstName] = useState('')
+        const [last_name, setLastName] = useState('')
+        const [phone, setPhone] = useState('')
+        const [about, setAbout] = useState('')
+        const [location, setLocation] = useState('')
 
         return(
 
