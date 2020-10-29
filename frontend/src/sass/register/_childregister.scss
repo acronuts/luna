@@ -18,7 +18,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: inherit;
+  height: 67vh;
+  margin-top: 120px;
 
   ::placeholder {
           display: flex;
