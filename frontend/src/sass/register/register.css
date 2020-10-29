@@ -41,6 +41,7 @@ body a {
   margin-bottom: 77px;
   border-bottom: 3px solid #E47D31;
   flex-direction: column;
+  padding: 0 5px 10px 5px;
 }
 .container .wrapper .signIn p {
   line-height: 28px;
@@ -170,6 +171,29 @@ body main {
 }
 .btn-container #finish-reg {
   width: 250px;
+  outline: none;
+  padding: 5%;
+  border-radius: 28px;
+  background-color: #E47D31;
+  font-family: Helvetica;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  border: none;
+  color: white;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn-container2 {
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+}
+.btn-container2 #search {
+  width: 200px;
   outline: none;
   padding: 5%;
   border-radius: 28px;

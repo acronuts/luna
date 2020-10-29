@@ -8,6 +8,8 @@ export const registration = `${baseUrl}backend/api/registration/`
 
 export const validation = `${baseUrl}backend/api/registration/validate/`
 
+export const userprofileurl = `${baseUrl}backend/api/users/me/`
+
 export const USER_TOKEN = "USER_TOKEN"
 
 export const listsRestaurants = `${baseUrl}backend/api/restaurants/`

@@ -7,7 +7,7 @@ import editprofile from '../../assets/svgs/edit.svg';
 import profilepicture from '../../assets/images/user/laurents-pb.png'
 
 import {userProfileAction} from "../../actions/userProfileAction";
-import {ABOUT_USER} from "../../constants";
+import {ABOUT_USER, userprofileurl} from "../../constants";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import baseUrl from "../../constants/urls";
@@ -37,14 +37,14 @@ export const UserProfile = ({data},props) => {
 
         console.log("Fetched User Data:",user);
 
-        const [email, setEmail] = useState('laurent@gmail.com')
-        const [username, setUsername] = useState('Laurent\'s Profile')
-        const [first_name, setFirstName] = useState('Laurent')
-        const [last_name, setLastName] = useState('.H')
+        const [email, setEmail] = useState('')
+        const [username, setUsername] = useState(' ')
+        const [first_name, setFirstName] = useState('')
+        const [last_name, setLastName] = useState('')
         const [phone, setPhone] = useState('0786700705')
-        const [description, setDescription] = useState('I\'m a professional photographer with an eye fore details in every thing I do in my live. Every time a pass by a nice restaurant i have to stop an take notes.')
+        const [description, setDescription] = useState('')
         const [location, setLocation] = useState('Zürich, CH')
-        const [thingsilove, setThingsILove] = useState('Everything')
+        const [fk_interest, setfk_interest] = useState('')
 
     // PATCH User Data
                 const handleSubmit = (event) => {
@@ -85,9 +85,9 @@ export const UserProfile = ({data},props) => {
                         fd.append('location', location);
                 }
 
-                if (thingsilove !== undefined) {
+                if (fk_interest !== undefined) {
 
-                    fd.append('thingsilove', thingsilove)
+                    fd.append('fk_interest', fk_interest)
                 }
 
                 fd.append('_method', 'PATCH');
@@ -95,7 +95,7 @@ export const UserProfile = ({data},props) => {
                 console.log(fd);
 
 
-                    axios.patch(`${baseUrl}api/users/me/`, fd,
+                    axios.patch(userprofileurl, fd,
                     {
                             headers: {
                                     'Authorization': `Bearer ${token}`
@@ -115,7 +115,8 @@ export const UserProfile = ({data},props) => {
                     });
         }
 
-        return(
+        return( <>
+            {user.hasOwnProperty("fk_interest_user") ?
 
             //Holds whole profile container
             <div className='container-user-profile'>
@@ -126,8 +127,8 @@ export const UserProfile = ({data},props) => {
                 <div className='wrapper-menu-lc'>
                 {/*PROFILE PIC LEFT COLUMN*/}
                 <div className='wrapper-profile-lc'>
-                    <img className='profile-picture, responsive' src={profilepicture}/>
-                    <p className='user-profile-text-lc'>{user.username}'s Profile</p>
+                    <img className='profile-picture, responsive' src={user.avatar}/>
+                    <p className='user-profile-text-lc'>{user.first_name}'s Profile</p>
                 </div>
 
 
@@ -161,7 +162,7 @@ export const UserProfile = ({data},props) => {
                 {/*User Info*/}
                 <div className='middle-column'>
 
-                    <p className='username-mc'>{user.username}</p>
+                    <p className='username-mc'>{user.first_name} {user.last_name}</p>
                     <p className='location-mc'>{user.location}</p>
                     <p className='amount-reviews-mc'>6 Reviews</p>
                     <p className='amount-comments'>210, Comments</p>
@@ -269,56 +270,57 @@ export const UserProfile = ({data},props) => {
                         {/*Username*/}
                         <div>
                             <p className='input-title'>Username</p>
-                            <input type='text' onChange={(event) => setUsername(event.target.value)} defaultValue={user.username}/>
+                            <input type='text' onChange={(event) => setUsername(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*First name*/}
                         <div>
                             <p className='input-title'>First name</p>
-                            <input type='text' onChange={(event) => setFirstName(event.target.value)} defaultValue={user.first_name}/>
+                            <input type='text' onChange={(event) => setFirstName(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Last name*/}
                         <div>
                             <p className='input-title'>Last Name</p>
-                            <input type='text' onChange={(event) => setLastName(event.target.value)} defaultValue={user.last_name}/>
+                            <input type='text' onChange={(event) => setLastName(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*E-mail*/}
                         <div>
                             <p className='input-title'>E-mail</p>
-                            <input type='text' onChange={(event) => setEmail(event.target.value)} defaultValue={user.email}/>
+                            <input type='text' onChange={(event) => setEmail(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Location*/}
                         <div>
                             <p className='input-title'>Location</p>
-                            <input type='text' onChange={(event) => setLocation(event.target.value)} defaultValue={user.location}/>
+                            <input type='text' onChange={(event) => setLocation(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Phone*/}
                         <div>
                             <p className='input-title'>Phone</p>
-                            <input type='text' onChange={(event) => setPhone(event.target.value)} defaultValue={user.phone}/>
+                            <input type='text' onChange={(event) => setPhone(event.target.value)} />
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Things i love*/}
                         <div>
                             <p className='input-title'>Things i love</p>
-                            <input className='things-i-love-input' onChange={(event) => setThingsILove(event.target.value)} defaultValue={user.thingsilove} type='text'/>
+                            {user.fk_interest_user.map(interest => {return (<><span>{interest.interest_name}</span> <span>,</span> </>)})}
+                            <input className='things-i-love-input' onChange={(event) => setfk_interest(event.target.value)} type='text'/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Description*/}
                         <div>
                             <p className='input-title'>Description</p>
-                            <input className='description-input' onChange={(event) => setDescription(event.target.value)} defaultValue={user.description} type='text'/>
+                            <input className='description-input' onChange={(event) => setDescription(event.target.value)}  type='text'/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
                     </div>
@@ -346,21 +348,23 @@ export const UserProfile = ({data},props) => {
 
                     <div className='member-since-rc'>
                         <p className='title-rc'>Luna member since</p>
-                        <p className='text'>{user.membersince}</p>
+                        <p className='text'>{user.date_joined}</p>
                     </div>
 
                     <div className='things-i-love-rc'>
                         <p className='title-rc'>Things i love</p>
-                        <p className='text'>{user.thingsilove}</p>
+                        {user.fk_interest_user.map(interest_name => {return (<><span>{interest_name.interest_name}</span> <span>,</span> </>)})}
                     </div>
+
 
                     <div className='description-rc'>
                         <p className='title-rc'>Description</p>
-                        <p className='text'>{user.description}</p>
+                        <p className='text'>{user.about}</p>
                     </div>
 
                 </div>
 
             </div>
-        )
+               : null }
+            </> )
 }

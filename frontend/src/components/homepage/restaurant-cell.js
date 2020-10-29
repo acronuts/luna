@@ -1,35 +1,42 @@
 import star from "../../assets/svgs/star.svg"
+import pic1 from "../../assets/images/homepage/bar-buffet-12-1.svg"
+import "../../sass/home/_childrestaurantCell.scss"
 
 
 export const Restaurant_cell = ({data}, props) => {
 
 
-
-    return (data) ? (
+// id={`restaurant-${data.id}`}}
+    return ( // (
 
         <div className="restaurant_card_wrapper">
 
-            <div id={`restaurant-${data.id}`}>
+            <div>
 
                 <div className="upper-upper">
 
-                    <p>{data.name}</p>
-                    <p>{data.city}</p>
+                    <p>Restaurant</p>
+                    <p>City</p>
+
+                    <div className="stars">
+
+                        <img src={star}/>
+                        <img src={star}/>
+                        <img src={star}/>
+                        <img src={star}/>
+                        <img src={star}/>
+
+                        <p>18</p>
+
+                    </div>
 
                 </div>
 
-                <div className="stars">
 
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
-                    <img src={star}/>
 
-                </div>
+                <div className="lower-card">
 
-                <div className="lower-card">s
-
+                    <img src={pic1}/>
 
 
                 </div>
@@ -38,5 +45,6 @@ export const Restaurant_cell = ({data}, props) => {
 
 
         </div>
-    ): null
+    )
+    // ): null
 }
