@@ -22,12 +22,9 @@ export const Login = () => {
     }
 
 
-
-
-
     return (
 
-        <main className="container">
+        <main className="login-container">
 
             <div className="wrapper">
 
@@ -46,7 +43,7 @@ export const Login = () => {
 
                 <div className="btn-container">
 
-                    <button type="submit" className="button" id="login">Login</button>
+                    <button type="submit" className="button" id="login" onClick={nextButtonHandler}>Login</button>
 
                 </div>
             </div>

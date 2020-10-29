@@ -16,7 +16,8 @@ body a {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: inherit;
+  height: 67vh;
+  margin-top: 120px;
 }
 .container ::placeholder {
   display: flex;
@@ -150,6 +151,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 .btn-container #signin {
   width: 200px;
@@ -164,6 +166,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 .btn-container #finish-reg {
   width: 250px;
@@ -178,6 +181,7 @@ body main {
   border: none;
   color: white;
   font-weight: normal;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=register.css.map */
