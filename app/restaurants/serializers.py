@@ -29,4 +29,3 @@ class RestaurantSerializer(serializers.ModelSerializer):
         model = Restaurant
         fields = ['name', 'country', 'street', 'city', 'zip', 'website', 'phone', 'email', 'price_level', 'owner',
                   'fk_image_restaurant', 'fk_timetable_restaurant', 'm2m_restaurant_cat', 'rating']
-
