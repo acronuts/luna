@@ -278,14 +278,14 @@ export const UserProfile = ({data},props) => {
                         <div>
                             <p className='input-title'>First name</p>
                             <input type='text' onChange={(event) => setFirstName(event.target.value)} defaultValue={user.first_name} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*Last name*/}
                         <div>
                             <p className='input-title'>Last Name</p>
                             <input type='text' onChange={(event) => setLastName(event.target.value)}  defaultValue={user.last_name}/>
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*E-mail*/}
@@ -299,14 +299,14 @@ export const UserProfile = ({data},props) => {
                         <div>
                             <p className='input-title'>Location</p>
                             <input type='text' onChange={(event) => setLocation(event.target.value)} defaultValue={user.location} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*Phone*/}
                         <div>
                             <p className='input-title'>Phone</p>
                             <input type='text' onChange={(event) => setPhone(event.target.value)} defaultValue={user.phone} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*Things i love*/}
@@ -314,14 +314,14 @@ export const UserProfile = ({data},props) => {
                             <p className='input-title'>Things i love</p>
                             {user.fk_interest_user.map(interest => {return (<><span>{interest.interest_name}</span> <span>,</span> </>)})}
                             <input className='things-i-love-input' onChange={(event) => setfk_interest(event.target.value)} type='text'/>
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*Description*/}
                         <div>
                             <p className='input-title'>Description</p>
                             <input className='description-input' onChange={(event) => setDescription(event.target.value)} defaultValue={user.about} type='text'/>
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
                     </div>
 
