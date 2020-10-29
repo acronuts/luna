@@ -8,6 +8,7 @@ import {CreateRestaurantPage} from "../pages/create-restaurant-page/create-resta
 import {CreateReviewPage} from "../pages/create-review-page/index";
 import {Searchbar} from "../components/search/search-review";
 import {Home} from "../pages/home";
+import {RestaurantPage} from "../pages/restaurant/restaurant-page";
 
 
 const Routes = () => {
@@ -23,6 +24,7 @@ const Routes = () => {
             <Route exact path={"/create-restaurant"} component={CreateRestaurantPage}/>
             <Route exact path={"/create-review"} component={CreateReviewPage}/>
             <Route exact path={"/home"} component={Home}/>
+            <Route exact path={"/restaurant"} component={RestaurantPage}/>
 
 
             </Switch>
