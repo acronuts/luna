@@ -17,6 +17,10 @@
   margin-bottom: 14vh;
   height: auto;
 }
+.container-user-profile span {
+  color: grey;
+  font-size: 14px;
+}
 .container-user-profile .wrapper-menu-lc {
   display: flex;
   flex-direction: column;
@@ -465,6 +469,21 @@
   color: white;
   font-weight: normal;
 }
+.container-user-profile .edit-profile-wrapper-mc .save-delete-mc button {
+  cursor: pointer;
+}
+.container-user-profile .edit-profile-wrapper-mc .save-delete-mc .button:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
 .container-user-profile .edit-profile-wrapper-mc .save-delete-mc p {
   margin: auto;
   color: red;
@@ -535,6 +554,18 @@
 .container-user-profile .right-column .things-i-love-rc {
   margin-left: 3%;
 }
+.container-user-profile .right-column .things-i-love-rc span {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 23px;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 4%;
+  color: black;
+  width: 50%;
+}
 .container-user-profile .right-column .things-i-love-rc .title-rc {
   margin-bottom: 1%;
   font-family: Helvetica, sans-serif;
@@ -557,6 +588,7 @@
 }
 .container-user-profile .right-column .description-rc {
   margin-left: 3%;
+  margin-top: 3%;
 }
 .container-user-profile .right-column .description-rc .title-rc {
   margin-bottom: 1%;
