@@ -13,3 +13,5 @@ export const USER_TOKEN = "USER_TOKEN"
 export const listsRestaurants = `${baseUrl}backend/api/restaurants/`
 
 export const List_all_Restaurants = "List_all_Restaurants"
+
+export const ABOUT_USER = "ABOUT_USER"
