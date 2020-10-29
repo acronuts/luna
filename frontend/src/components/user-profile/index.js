@@ -10,6 +10,7 @@ import {userProfileAction} from "../../actions/userProfileAction";
 import {ABOUT_USER} from "../../constants";
 import {useDispatch, useSelector} from "react-redux";
 import axios from "axios";
+import baseUrl from "../../constants/urls";
 
 
 
@@ -18,7 +19,11 @@ export const UserProfile = ({data},props) => {
     //User Nav Menu
     const [currentStage, setcurrentStage] = useState('show-reviews')
 
-    //User Data Fetch
+    // Get Token
+    const token = localStorage.getItem("token")
+    console.log(token)
+
+    // GET User Data
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userProfileReducer.user)
 
@@ -32,13 +37,83 @@ export const UserProfile = ({data},props) => {
 
         console.log("Fetched User Data:",user);
 
-        const [avatar, setAvatar] = useState({profilepicture})
+        const [email, setEmail] = useState('laurent@gmail.com')
         const [username, setUsername] = useState('Laurent\'s Profile')
-        const [first_name, setFirstName] = useState('')
-        const [last_name, setLastName] = useState('')
-        const [phone, setPhone] = useState('')
-        const [about, setAbout] = useState('')
-        const [location, setLocation] = useState('')
+        const [first_name, setFirstName] = useState('Laurent')
+        const [last_name, setLastName] = useState('.H')
+        const [phone, setPhone] = useState('0786700705')
+        const [description, setDescription] = useState('I\'m a professional photographer with an eye fore details in every thing I do in my live. Every time a pass by a nice restaurant i have to stop an take notes.')
+        const [location, setLocation] = useState('Zürich, CH')
+        const [thingsilove, setThingsILove] = useState('Everything')
+
+    // PATCH User Data
+                const handleSubmit = (event) => {
+                                let fd = new FormData();
+
+                if (email !== undefined) {
+
+                        fd.append('email', email);
+                }
+
+                if (username !== undefined) {
+
+                        fd.append('username', username);
+                }
+
+                if (description !== undefined) {
+
+                        fd.append('about', description);
+                }
+
+                if (first_name !== undefined) {
+
+                        fd.append('first_name', first_name);
+                }
+
+                if (last_name !== undefined) {
+
+                        fd.append('last_name', last_name);
+                }
+
+                if (phone !== undefined) {
+
+                        fd.append('phone', phone);
+                }
+
+                if (location !== undefined) {
+
+                        fd.append('location', location);
+                }
+
+                if (thingsilove !== undefined) {
+
+                    fd.append('thingsilove', thingsilove)
+                }
+
+                fd.append('_method', 'PATCH');
+
+                console.log(fd);
+
+
+                    axios.patch(`${baseUrl}api/users/me/`, fd,
+                    {
+                            headers: {
+                                    'Authorization': `Bearer ${token}`
+                            }
+                    })
+                    .then((response) => {
+                            console.log(response);
+
+                    })
+                    .catch((error) => {
+                            if (error.response) {
+                              // The request was made and the server responded with a status code
+                              // that falls out of the range of 2xx
+                              console.log(error.response.data);
+                              console.log(error.response.status);
+                              console.log(error.response.headers);}
+                    });
+        }
 
         return(
 
@@ -52,7 +127,7 @@ export const UserProfile = ({data},props) => {
                 {/*PROFILE PIC LEFT COLUMN*/}
                 <div className='wrapper-profile-lc'>
                     <img className='profile-picture, responsive' src={profilepicture}/>
-                    <p className='user-profile-text-lc'>Laurent's Profile</p>
+                    <p className='user-profile-text-lc'>{user.username}'s Profile</p>
                 </div>
 
 
@@ -86,8 +161,8 @@ export const UserProfile = ({data},props) => {
                 {/*User Info*/}
                 <div className='middle-column'>
 
-                    <p className='username-mc'>Laurent H.</p>
-                    <p className='location-mc'>Zürich, CH</p>
+                    <p className='username-mc'>{user.username}</p>
+                    <p className='location-mc'>{user.location}</p>
                     <p className='amount-reviews-mc'>6 Reviews</p>
                     <p className='amount-comments'>210, Comments</p>
 
@@ -194,62 +269,62 @@ export const UserProfile = ({data},props) => {
                         {/*Username*/}
                         <div>
                             <p className='input-title'>Username</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setUsername(event.target.value)} defaultValue={user.username}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*First name*/}
                         <div>
                             <p className='input-title'>First name</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setFirstName(event.target.value)} defaultValue={user.first_name}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Last name*/}
                         <div>
                             <p className='input-title'>Last Name</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setLastName(event.target.value)} defaultValue={user.last_name}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*E-mail*/}
                         <div>
                             <p className='input-title'>E-mail</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setEmail(event.target.value)} defaultValue={user.email}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Location*/}
                         <div>
                             <p className='input-title'>Location</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setLocation(event.target.value)} defaultValue={user.location}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Phone*/}
                         <div>
                             <p className='input-title'>Phone</p>
-                            <input type='text'/>
+                            <input type='text' onChange={(event) => setPhone(event.target.value)} defaultValue={user.phone}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Things i love*/}
                         <div>
                             <p className='input-title'>Things i love</p>
-                            <input className='things-i-love-input' type='text'/>
+                            <input className='things-i-love-input' onChange={(event) => setThingsILove(event.target.value)} defaultValue={user.thingsilove} type='text'/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Description*/}
                         <div>
                             <p className='input-title'>Description</p>
-                            <input className='description-input' type='text'/>
+                            <input className='description-input' onChange={(event) => setDescription(event.target.value)} defaultValue={user.description} type='text'/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
                     </div>
 
                     <div className='save-delete-mc'>
-                    <button className='save-editdprofile-mc'>Save</button>
+                    <button className='save-editdprofile-mc' onClick={handleSubmit} >Save</button>
                     <p>Delete account</p>
                     </div>
 
@@ -261,27 +336,27 @@ export const UserProfile = ({data},props) => {
                 <div className='right-column'>
 
                     <div className='title-about-rc'>
-                        <p className='title-about'>About Laurent</p>
+                        <p className='title-about'>About {user.username}</p>
                     </div>
 
                     <div className='location-rc'>
                         <p className='title-rc'>Location</p>
-                        <p className='text'>Zürich, CH</p>
+                        <p className='text'>{user.location}</p>
                     </div>
 
                     <div className='member-since-rc'>
                         <p className='title-rc'>Luna member since</p>
-                        <p className='text'>April, 2018</p>
+                        <p className='text'>{user.membersince}</p>
                     </div>
 
                     <div className='things-i-love-rc'>
                         <p className='title-rc'>Things i love</p>
-                        <p className='text'>Everything</p>
+                        <p className='text'>{user.thingsilove}</p>
                     </div>
 
                     <div className='description-rc'>
                         <p className='title-rc'>Description</p>
-                        <p className='text'>I'm a professional photographer with an eye fore details in every thing I do in my live. Every time a pass by a nice restaurant i have to stop an take notes.</p>
+                        <p className='text'>{user.description}</p>
                     </div>
 
                 </div>
