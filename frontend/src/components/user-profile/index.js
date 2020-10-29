@@ -37,14 +37,14 @@ export const UserProfile = ({data},props) => {
 
         console.log("Fetched User Data:",user);
 
-        const [email, setEmail] = useState('')
-        const [username, setUsername] = useState(' ')
-        const [first_name, setFirstName] = useState('')
-        const [last_name, setLastName] = useState('')
-        const [phone, setPhone] = useState('0786700705')
-        const [description, setDescription] = useState('')
-        const [location, setLocation] = useState('Zürich, CH')
-        const [fk_interest, setfk_interest] = useState('')
+        const [email, setEmail] = useState(user.email)
+        const [username, setUsername] = useState(user.username)
+        const [first_name, setFirstName] = useState(user.first_name)
+        const [last_name, setLastName] = useState(user.last_name)
+        const [phone, setPhone] = useState(user.phone)
+        const [description, setDescription] = useState(user.about)
+        const [location, setLocation] = useState(user.location)
+        const [fk_interest, setfk_interest] = useState()
 
     // PATCH User Data
                 const handleSubmit = (event) => {
@@ -270,43 +270,43 @@ export const UserProfile = ({data},props) => {
                         {/*Username*/}
                         <div>
                             <p className='input-title'>Username</p>
-                            <input type='text' onChange={(event) => setUsername(event.target.value)} />
+                            <input type='text' onChange={(event) => setUsername(event.target.value)} defaultValue={user.username}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*First name*/}
                         <div>
                             <p className='input-title'>First name</p>
-                            <input type='text' onChange={(event) => setFirstName(event.target.value)} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+                            <input type='text' onChange={(event) => setFirstName(event.target.value)} defaultValue={user.first_name} />
+
                         </div>
 
                         {/*Last name*/}
                         <div>
                             <p className='input-title'>Last Name</p>
-                            <input type='text' onChange={(event) => setLastName(event.target.value)} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+                            <input type='text' onChange={(event) => setLastName(event.target.value)}  defaultValue={user.last_name}/>
+
                         </div>
 
                         {/*E-mail*/}
                         <div>
                             <p className='input-title'>E-mail</p>
-                            <input type='text' onChange={(event) => setEmail(event.target.value)} />
+                            <input type='text' onChange={(event) => setEmail(event.target.value)}  defaultValue={user.email}/>
                             <p className='error-required-field-mc'>*This field is required</p>
                         </div>
 
                         {/*Location*/}
                         <div>
                             <p className='input-title'>Location</p>
-                            <input type='text' onChange={(event) => setLocation(event.target.value)} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+                            <input type='text' onChange={(event) => setLocation(event.target.value)} defaultValue={user.location} />
+
                         </div>
 
                         {/*Phone*/}
                         <div>
                             <p className='input-title'>Phone</p>
-                            <input type='text' onChange={(event) => setPhone(event.target.value)} />
-                            <p className='error-required-field-mc'>*This field is required</p>
+                            <input type='text' onChange={(event) => setPhone(event.target.value)} defaultValue={user.phone} />
+
                         </div>
 
                         {/*Things i love*/}
@@ -314,14 +314,14 @@ export const UserProfile = ({data},props) => {
                             <p className='input-title'>Things i love</p>
                             {user.fk_interest_user.map(interest => {return (<><span>{interest.interest_name}</span> <span>,</span> </>)})}
                             <input className='things-i-love-input' onChange={(event) => setfk_interest(event.target.value)} type='text'/>
-                            <p className='error-required-field-mc'>*This field is required</p>
+
                         </div>
 
                         {/*Description*/}
                         <div>
                             <p className='input-title'>Description</p>
-                            <input className='description-input' onChange={(event) => setDescription(event.target.value)}  type='text'/>
-                            <p className='error-required-field-mc'>*This field is required</p>
+                            <input className='description-input' onChange={(event) => setDescription(event.target.value)} defaultValue={user.about} type='text'/>
+
                         </div>
                     </div>
 
