@@ -19,7 +19,7 @@ export const Login = () => {
         }))
             .then(() => {
                if(localStorage) {
-                   history.push("/home")
+                   history.push("/")
                }
         })
 
