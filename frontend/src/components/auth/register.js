@@ -60,7 +60,7 @@ export const Register = () => {
                         password: request["password"]
                     }))
                     if(localStorage) {
-                        history.push("/login")
+                        history.push("/home")
                     }
                 }
             })

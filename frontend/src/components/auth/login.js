@@ -2,11 +2,12 @@ import "../../sass/login/login.scss"
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {userLogin} from "../../actions/userLoginAction";
+import {useHistory} from "react-router-dom";
 
 export const Login = () => {
 
     const dispatch = useDispatch()
-    // let history = useHistory();
+    let history = useHistory();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,6 +17,11 @@ export const Login = () => {
             username: username,
             password: password
         }))
+            .then(() => {
+               if(localStorage) {
+                   history.push("/home")
+               }
+        })
 
         console.log("User", user)
 
