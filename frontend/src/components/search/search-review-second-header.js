@@ -1,5 +1,7 @@
 import "../../sass/searchbar/search.scss"
 import arrow from "../../assets/svgs/arrow.svg"
+
+
 export const Searchbar = () => {
 
 

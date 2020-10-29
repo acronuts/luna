@@ -19,3 +19,5 @@ export const List_all_Restaurants = "List_all_Restaurants"
 export const ABOUT_USER = "ABOUT_USER"
 
 export const createRestaurant = `${baseUrl}backend/api/restaurants/new/`
+
+export const USER_LOGOUT = "USER_LOGOUT";

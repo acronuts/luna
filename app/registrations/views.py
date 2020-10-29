@@ -8,6 +8,8 @@ from .models import RegistrationProfile
 
 from users.serializers import UserSerializer
 
+from django.core.mail import send_mail
+
 User = get_user_model()
 
 
@@ -21,7 +23,15 @@ class RegistrationView(GenericAPIView):
         registration = RegistrationProfile(user=new_user)
         registration.save()
 
-        # email to be added
+        send_mail(
+            'Luna Registration code',
+            f'Hello {new_user.username},\n\nWelcome to Luna. Please use the following code to validate your email and update your account.\n'
+            f'Code: {registration.code}\n\n'
+            f'Thank you for joining Luna',
+            'noreply.luna@gmail.com',
+            [f'{new_user.email}'],
+            fail_silently=False,
+        )
 
         return Response(status=200)
 
@@ -44,4 +54,4 @@ class ValidationView(GenericAPIView):
             check_validation.save()
             return Response(self.get_serializer(check_validation.user).data)
         except ObjectDoesNotExist:
-            return Response(status=404, data=f'This {code} is not valid with {email}')
+            return Response(status=404, data=f'This code {code} is not valid with {email}')
