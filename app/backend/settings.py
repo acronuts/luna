@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'categories',
     'images',
     'time_tables',
+    'reviews',
+    'comments',
 ]
 
 MIDDLEWARE = [
