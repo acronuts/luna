@@ -9,8 +9,6 @@ from reviews.permissions import IsUserOrReadOnly
 
 from likes.models import Like
 
-from users.serializers import UserSerializer
-
 
 class CreateReviewView(CreateAPIView):
     queryset = Review.objects.all()
