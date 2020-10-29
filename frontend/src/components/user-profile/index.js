@@ -115,8 +115,8 @@ export const UserProfile = ({data},props) => {
                     });
         }
 
-        return(<>
-            {user.length ?
+        return( <>
+            {user.hasOwnProperty("fk_interest_user") ?
 
             //Holds whole profile container
             <div className='container-user-profile'>
@@ -353,7 +353,7 @@ export const UserProfile = ({data},props) => {
 
                     <div className='things-i-love-rc'>
                         <p className='title-rc'>Things i love</p>
-                        {/*{user.fk_interest_user.map(interest_name => {return (<><span>{interest_name.interest_name}</span> <span>,</span> </>)})}*/}
+                        {user.fk_interest_user.map(interest_name => {return (<><span>{interest_name.interest_name}</span> <span>,</span> </>)})}
                     </div>
 
 
@@ -365,6 +365,6 @@ export const UserProfile = ({data},props) => {
                 </div>
 
             </div>
-         : null }</>)
-
+               : null }
+            </> )
 }
