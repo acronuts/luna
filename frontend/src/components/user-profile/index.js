@@ -21,7 +21,7 @@ export const UserProfile = ({data},props) => {
 
     // Get Token
     const token = localStorage.getItem("token")
-    console.log(token)
+    // console.log(token)
 
     // GET User Data
     const dispatch = useDispatch();
@@ -32,10 +32,10 @@ export const UserProfile = ({data},props) => {
                         await dispatch(userProfileAction(ABOUT_USER))
                 }
                 userData();
-                console.log("user", data)
+                // console.log("user", data)
             },[]);
 
-        console.log("Fetched User Data:",user);
+        // console.log("Fetched User Data:",user);
 
         const [email, setEmail] = useState(user.email)
         const [username, setUsername] = useState(user.username)
@@ -92,7 +92,7 @@ export const UserProfile = ({data},props) => {
 
                 fd.append('_method', 'PATCH');
 
-                console.log(fd);
+                // console.log(fd);
 
 
                     axios.patch(userprofileurl, fd,
@@ -102,7 +102,7 @@ export const UserProfile = ({data},props) => {
                             }
                     })
                     .then((response) => {
-                            console.log(response);
+                            // console.log(response);
 
                     })
                     .catch((error) => {
