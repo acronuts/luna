@@ -23,7 +23,7 @@ export const Login = () => {
                }
         })
 
-        console.log("User", user)
+        // console.log("User", user)
 
     }
 

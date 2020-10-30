@@ -7,8 +7,8 @@ import {createRestaurant} from "../../constants";
 
 export const CreateRestaurant = () => {
     const token = localStorage.getItem("token")
-    console.log(token)
-    console.log(createRestaurant)
+    // console.log(token)
+    // console.log(createRestaurant)
     const [name, setname] = useState('')
     const [country, setcountry] = useState(' ')
     const [street, setstreet] = useState('')
@@ -70,7 +70,7 @@ export const CreateRestaurant = () => {
 
         fd.append('_method', 'POST');
 
-        console.log(fd);
+        // console.log(fd);
 
 
         axios.post(createRestaurant, fd,
@@ -80,7 +80,7 @@ export const CreateRestaurant = () => {
                 }
             })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
 
             })
             .catch((error) => {
