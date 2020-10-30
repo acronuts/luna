@@ -12,6 +12,7 @@ import {RestaurantPage} from "../pages/restaurant/restaurant-page";
 import {Restaurant_cell} from "../components/homepage/restaurant-cell";
 import {Login} from "../components/auth/login";
 import WrapperComponent from "../HOC/AuthComponent"
+import {SearchRestaurant} from "../pages/search/SearchRestaurantPage";
 
 
 const Routes = () => {
@@ -26,7 +27,7 @@ const Routes = () => {
             <Route exact path={"/create-restaurant"} component={WrapperComponent(CreateRestaurantPage)}/>
             <Route exact path={"/create-review"} component={WrapperComponent(CreateReviewPage)}/>
             <Route exact path={"/"} component={Home}/>
-            <Route exact path={"/restaurant"} component={RestaurantPage}/>
+            <Route excat path={"/search-restaurant"} component={SearchRestaurant}/>
 
 
 

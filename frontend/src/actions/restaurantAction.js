@@ -8,12 +8,10 @@ export const setRestaurantData = (type, data) => {
     }
 }
 
-export const listRestaurant = (type) => async (dispatch, getState) => {
-    const { userLoginReducer:{ token } } = getState();
+export const listRestaurant = (type) => async (dispatch) => {
     const config = {
         method: "GET",
         headers: new Headers({
-            "Authorization": `Bearer ${token}`,
             "Content-Type" : "application/json"
         }),
 
@@ -21,5 +19,6 @@ export const listRestaurant = (type) => async (dispatch, getState) => {
 
     const response = await fetch(listsRestaurants, config)
     const data = await response.json();
+    console.log("action", data)
     dispatch(setRestaurantData(type, data))
 }
