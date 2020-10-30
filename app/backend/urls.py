@@ -19,6 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views
 
+from restaurants.views import ListTopRestaurantsView
+
 authurls = [
     path('token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', views.TokenRefreshView.as_view(), name='token_refresh'),
@@ -36,6 +38,7 @@ urlpatterns = [
     path('backend/api/reviews/', include('reviews.urls')),
     path('backend/api/review/comment/', include('comments.urls')),
     path('backend/api/categories/', include('categories.urls')),
+    path('backend/api/home/', ListTopRestaurantsView.as_view()),
 ]
 
 if settings.DEBUG:
