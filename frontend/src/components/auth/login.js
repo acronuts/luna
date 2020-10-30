@@ -43,7 +43,7 @@ export const Login = () => {
                 <div className="inputs">
 
                     <input className="username" placeholder="Username" onChange={ event => setUsername(event.target.value)}/>
-                    <input className="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
+                    <input type="password" className="password" placeholder="Password" onChange={ event => setPassword(event.target.value)}/>
 
                 </div>
 
