@@ -7,8 +7,8 @@ import {createRestaurant} from "../../constants";
 
 export const CreateRestaurant = () => {
     const token = localStorage.getItem("token")
-    console.log(token)
-    console.log(createRestaurant)
+    // console.log(token)
+    // console.log(createRestaurant)
     const [name, setname] = useState('')
     const [country, setcountry] = useState(' ')
     const [street, setstreet] = useState('')
@@ -19,6 +19,7 @@ export const CreateRestaurant = () => {
     const [email, setemail] = useState('')
     const [category, setcategory] = useState('')
     const [price_level, setpricelevel] = useState('cheap')
+
 
     const handleSubmit = (event) => {
         let fd = new FormData();
@@ -69,7 +70,7 @@ export const CreateRestaurant = () => {
 
         fd.append('_method', 'POST');
 
-        console.log(fd);
+        // console.log(fd);
 
 
         axios.post(createRestaurant, fd,
@@ -79,7 +80,7 @@ export const CreateRestaurant = () => {
                 }
             })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
 
             })
             .catch((error) => {
@@ -92,6 +93,7 @@ export const CreateRestaurant = () => {
                 }
             });
     }
+
     return (
 
         <div className='container-create-restaurant'>
@@ -114,8 +116,8 @@ export const CreateRestaurant = () => {
                    <input className='input' onChange={(event) => setwebsite(event.target.value)} type='text'/>
 
                     <p className='input-title'>Opening Hours *</p>
-                   <input className='input'  type='text'/>
-
+                   <input className='input' defaultValue='Monday - Friday 10:00am - 10:00pm' type='text'/>
+git
                 </div>
 
                 <div className='middle-column'>
@@ -130,7 +132,7 @@ export const CreateRestaurant = () => {
                    <input className='input' onChange={(event) => setphone(event.target.value)} type='text'/>
 
                     <p className='input-title'>Price Level *</p>
-                   <input className='input' onChange={(event) => setpricelevel(event.target.value)} type='text'/>
+                   <input className='input' onChange={(event) => setpricelevel(event.target.value)} defaultValue='$$$' type='text'/>
 
                 </div>
 
@@ -146,7 +148,7 @@ export const CreateRestaurant = () => {
                     <input className='input' onChange={(event) => setemail(event.target.value)} type='text'/>
 
                     <p className='input-title'>Image</p>
-                    <button className='image-button'>CHOOSE A FILE TO UPLOAD...</button>
+                    <input type='file' id='real-file' className='image-button' />
 
                 </div>
 

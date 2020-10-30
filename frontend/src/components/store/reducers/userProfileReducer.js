@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export default function userProfileReducer (state = initialState, action) {
-    console.log("In The userProfileReducer")
+    // console.log("In The userProfileReducer")
 
     switch (action.type) {
         case ABOUT_USER: {

@@ -21,7 +21,7 @@ export const UserProfile = ({data},props) => {
 
     // Get Token
     const token = localStorage.getItem("token")
-    console.log(token)
+    // console.log(token)
 
     // GET User Data
     const dispatch = useDispatch();
@@ -32,10 +32,10 @@ export const UserProfile = ({data},props) => {
                         await dispatch(userProfileAction(ABOUT_USER))
                 }
                 userData();
-                console.log("user", data)
+                // console.log("user", data)
             },[]);
 
-        console.log("Fetched User Data:",user);
+        // console.log("Fetched User Data:",user);
 
         const [email, setEmail] = useState(user.email)
         const [username, setUsername] = useState(user.username)
@@ -92,7 +92,7 @@ export const UserProfile = ({data},props) => {
 
                 fd.append('_method', 'PATCH');
 
-                console.log(fd);
+                // console.log(fd);
 
 
                     axios.patch(userprofileurl, fd,
@@ -102,7 +102,7 @@ export const UserProfile = ({data},props) => {
                             }
                     })
                     .then((response) => {
-                            console.log(response);
+                            // console.log(response);
 
                     })
                     .catch((error) => {
@@ -115,11 +115,13 @@ export const UserProfile = ({data},props) => {
                     });
         }
 
+        const joinDate = new Date(`${user.date_joined}`).toLocaleDateString('en-gb', {year: 'numeric', month: 'long', day: 'numeric'});
+
         return( <>
             {user.hasOwnProperty("fk_interest_user") ?
 
             //Holds whole profile container
-            <div className='container-user-profile'>
+            <div className='container-user-profile' >
 
                 {/*LEFT COLUMN*/}
 
@@ -164,8 +166,8 @@ export const UserProfile = ({data},props) => {
 
                     <p className='username-mc'>{user.first_name} {user.last_name}</p>
                     <p className='location-mc'>{user.location}</p>
-                    <p className='amount-reviews-mc'>6 Reviews</p>
-                    <p className='amount-comments'>210, Comments</p>
+                    <p className='amount-reviews-mc'>{user.amount_of_reviews} Reviews</p>
+                    <p className='amount-comments'>{user.amount_of_comments} Comments</p>
 
 
                 {/*MENU SWAPPING COMPONENTS*/}
@@ -311,7 +313,7 @@ export const UserProfile = ({data},props) => {
 
                         {/*Things i love*/}
                         <div>
-                            <p className='input-title'>Things i love</p>
+                            <p className='input-title'>Things I love</p>
                             {user.fk_interest_user.map(interest => {return (<><span>{interest.interest_name}</span> <span>,</span> </>)})}
                             <input className='things-i-love-input' onChange={(event) => setfk_interest(event.target.value)} type='text'/>
 
@@ -348,11 +350,11 @@ export const UserProfile = ({data},props) => {
 
                     <div className='member-since-rc'>
                         <p className='title-rc'>Luna member since</p>
-                        <p className='text'>{user.date_joined}</p>
+                        <p className='text'>{joinDate}</p>
                     </div>
 
                     <div className='things-i-love-rc'>
-                        <p className='title-rc'>Things i love</p>
+                        <p className='title-rc'>Things I love</p>
                         {user.fk_interest_user.map(interest_name => {return (<><span>{interest_name.interest_name}</span> <span>,</span> </>)})}
                     </div>
 

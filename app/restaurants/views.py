@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -63,3 +64,11 @@ class ListRestaurantsByUser(ListAPIView):
 
     def get_queryset(self):
         return Restaurant.objects.filter(owner=self.kwargs['user_id'])
+
+
+class ListTopRestaurantsView(ListAPIView):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
+
+    def get_queryset(self):
+        return Restaurant.objects.annotate(top_rest=Avg('fk_review_restaurant__rating')).order_by('-top_rest').all()[:4]

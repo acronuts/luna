@@ -21,12 +21,12 @@ export const userProfileAction = (type) => async (dispatch, getState) => {
 
     };
 
-    console.log(token)
+    // console.log(token)
     const response = await fetch(userprofileurl, config)
     const data = await response.json();
 
-    console.log("Fetching UserProfileData")
+    // console.log("Fetching UserProfileData")
 
     dispatch(setUserData(type, data));
-    console.log("data", data)
+    // console.log("data", data)
 };
