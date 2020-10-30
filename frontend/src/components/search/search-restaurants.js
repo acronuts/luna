@@ -10,12 +10,12 @@ export const SearchRestaurants = ({data}, props) => {
 
     const dispatch = useDispatch()
     const restaurantsAllChron = useSelector((state) => state.restaurantReducer.restaurantsAllChron)
-    console.log(restaurantsAllChron)
+
 
     useEffect(() => {
         dispatch(listRestaurant(List_all_Restaurants))
     },[])
-    console.log(restaurantsAllChron)
+
 
     return (
 

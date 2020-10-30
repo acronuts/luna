@@ -7,8 +7,6 @@ import {createRestaurant} from "../../constants";
 
 export const CreateRestaurant = () => {
     const token = localStorage.getItem("token")
-    // console.log(token)
-    // console.log(createRestaurant)
     const [name, setname] = useState('')
     const [country, setcountry] = useState(' ')
     const [street, setstreet] = useState('')

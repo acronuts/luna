@@ -6,7 +6,6 @@ import "../../sass/home/_childrestaurantCell.scss"
 export const NewRestaurant_cell = ({data}, props) => {
 
 
-    console.log(data)
     return (
 
         <div className="restaurant_card_wrapper">
