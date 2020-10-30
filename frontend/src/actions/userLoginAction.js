@@ -23,7 +23,7 @@ export const userLogin = data => async (dispatch, getState) => {
     const user = await response.json();
     const { access } = user;
 
-    console.log(access)
+    // console.log(access)
 
     if (access) {
         localStorage.setItem("token", access)
