@@ -42,7 +42,7 @@ export const Header = () => {
                 <div className="home-search-profile">
 
                     <Link to="/"><p>Home</p></Link>
-                    <Link to="/restaurant"><p>Search</p></Link>
+                    <Link to="/search-restaurant"><p>Search</p></Link>
                     <Link to="/userprofile"><p>Profile</p></Link>
 
                 </div>
