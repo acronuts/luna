@@ -19,6 +19,6 @@ export const listRestaurant = (type) => async (dispatch) => {
 
     const response = await fetch(listsRestaurants, config)
     const data = await response.json();
-    console.log("action", data)
+
     dispatch(setRestaurantData(type, data))
 }

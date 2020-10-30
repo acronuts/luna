@@ -7,7 +7,7 @@ export default WrapperComponent => (props) => {
 
     // const token = useSelector(state => state.userLoginReducer.token)
     const token = localStorage.getItem("token")
-    // console.log("TokenTest", token)
+
     const history = useHistory()
 
     const redirect = () => {
